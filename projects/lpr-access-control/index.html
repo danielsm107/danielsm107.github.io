@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>License Plate Recognition Access Control — case study · Daniel Serrano Marín</title>
+<meta name="description" content="Vehicle access control on a Raspberry Pi 3B: OpenALPR reads the plate, a Flask + MySQL backend authorizes it and pushes the event live over Socket.IO.">
+<meta name="author" content="Daniel Serrano Marín">
+<meta name="theme-color" content="#0a0b0d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://dsermar.dev/projects/lpr-access-control/">
+<link rel="alternate" hreflang="en" href="https://dsermar.dev/projects/lpr-access-control/">
+<link rel="alternate" hreflang="es" href="https://dsermar.dev/es/projects/lpr-access-control/">
+<link rel="alternate" hreflang="x-default" href="https://dsermar.dev/projects/lpr-access-control/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Daniel Serrano Marín">
+<meta property="og:title" content="License Plate Recognition Access Control — case study · Daniel Serrano Marín">
+<meta property="og:description" content="Vehicle access control on a Raspberry Pi 3B: OpenALPR reads the plate, a Flask + MySQL backend authorizes it and pushes the event live over Socket.IO.">
+<meta property="og:url" content="https://dsermar.dev/projects/lpr-access-control/">
+<meta property="og:image" content="https://dsermar.dev/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Daniel Serrano Marín — Systems &amp; Infrastructure Engineer">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/GeistMono-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=mudxhvfh">
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareSourceCode","@id":"https://dsermar.dev/projects/lpr-access-control/#project","name":"License Plate Recognition Access Control","description":"Vehicle access control on a Raspberry Pi 3B: OpenALPR reads the plate, a Flask + MySQL backend authorizes it and pushes the event live over Socket.IO.","url":"https://dsermar.dev/projects/lpr-access-control/","codeRepository":"https://github.com/danielsm107/control-acceso-matriculas","programmingLanguage":"Python","keywords":"Raspberry Pi 3B, Python, OpenALPR, Flask, MySQL, Socket.IO, WebSockets, systemd","inLanguage":"en","author":{"@id":"https://dsermar.dev/#person"}},{"@type":"Person","@id":"https://dsermar.dev/#person","name":"Daniel Serrano Marín","url":"https://dsermar.dev"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Daniel Serrano Marín","item":"https://dsermar.dev/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://dsermar.dev/#projects"},{"@type":"ListItem","position":3,"name":"License Plate Recognition Access Control","item":"https://dsermar.dev/projects/lpr-access-control/"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect x=".5" y=".5" width="31" height="31" rx="7" fill="#101216" stroke="#2e333b"/><path d="M9 11l5 5-5 5" fill="none" stroke="#8ab4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 21h7" stroke="#eceef1" stroke-width="2" stroke-linecap="round"/></svg><span class="brand-text">dsermar</span><span class="sr-only"> — Daniel Serrano Marín</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Menu" data-open="Menu" data-close="Close menu"><svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <div class="nav-panel" id="nav-panel">
+      <nav aria-label="Main" class="nav-main"><ul class="nav-links"><li><a href="/">Home</a></li><li><a href="/#experience">Experience</a></li><li><a href="/#projects">Projects</a></li><li><a href="/#skills">Skills</a></li><li><a href="/#certifications">Certifications</a></li><li><a href="/#about">About</a></li><li><a href="/#contact">Contact</a></li></ul></nav>
+      <div class="nav-actions">
+        <div class="lang" role="group" aria-label="Language"><span aria-current="true" lang="en">EN</span><a href="/es/projects/lpr-access-control/" hreflang="es" lang="es">ES<span class="sr-only"> — Leer en español</span></a></div>
+        <a class="btn btn-secondary btn-sm" href="/cv/daniel-serrano-marin-cv.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download CV</a>
+      </div>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="cs-head">
+  <div class="wrap reveal">
+    <a class="crumb" href="/#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>All projects</a>
+    <h1>License Plate Recognition Access Control</h1>
+    <p class="tagline">Vehicle access control on a Raspberry Pi 3B: OpenALPR reads the plate, a Flask + MySQL backend authorizes it and pushes the event live over Socket.IO.</p>
+    <dl class="cs-facts">
+      <div><dt>Type</dt><dd>Final degree project — ASIR</dd></div>
+      <div><dt>Date</dt><dd>2024 — 2025</dd></div>
+      <div><dt>Role</dt><dd>Sole author</dd></div>
+      <div><dt>Source</dt><dd><a href="https://github.com/danielsm107/control-acceso-matriculas" rel="noopener">GitHub<svg style="display:inline;width:14px;height:14px;vertical-align:-2px;margin-left:2px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></dd></div>
+    </dl>
+  </div>
+</div>
+<div class="wrap cs-body">
+  <section class="cs-sec" aria-labelledby="s-summary"><h2 id="s-summary"><span>01</span>Technical summary</h2><div><div class="prose"><p>An access-control system based on automatic license-plate recognition. A Raspberry Pi 3B with a camera captures the vehicle, OpenALPR (EU region) extracts the plate, and a Flask backend with MySQL checks it against authorized plates. Users and roles are authenticated, and access events reach the web interface in real time through WebSockets (Socket.IO).</p></div></div></section>
+  <section class="cs-sec" aria-labelledby="s-architecture"><h2 id="s-architecture"><span>02</span>Architecture</h2><div><figure class="arch" aria-label="LPR system architecture"><div class="arch-canvas"><div class="ar-row"><div class="ar-group"><span class="ar-gl">Edge · Raspberry Pi 3B</span><div class="ar-stack"><div class="ar-node"><span class="ar-t">Camera</span><span class="ar-s">1 frame / second</span></div><div class="ar-node is-accent"><span class="ar-t">OpenALPR</span><span class="ar-s">EU region</span><span class="ar-s">plate → text</span></div><div class="ar-node"><span class="ar-t">Python client</span><span class="ar-s">systemd service</span><span class="ar-s">Restart=always</span></div></div></div><div class="ar-link" aria-hidden="true"><span>HTTP POST</span></div><div class="ar-group"><span class="ar-gl">Backend</span><div class="ar-stack"><div class="ar-node"><span class="ar-t">Flask</span><span class="ar-s">API · auth · roles</span></div><div class="ar-node"><span class="ar-t">MySQL</span><span class="ar-s">plates · users · log</span></div></div></div><div class="ar-link" aria-hidden="true"><span>Socket.IO</span></div><div class="ar-group"><span class="ar-gl">Clients</span><div class="ar-stack"><div class="ar-node"><span class="ar-t">Web UI</span><span class="ar-s">users request plates</span><span class="ar-s">admins approve</span><span class="ar-s">live access history</span></div></div></div></div></div><figcaption>Recognition runs at the edge; the backend authorizes, stores and pushes events to the browser.</figcaption></figure></div></section>
+  <section class="cs-sec" aria-labelledby="s-contribution"><h2 id="s-contribution"><span>03</span>My contribution</h2><div><div class="prose"><p>Final project of my ASIR degree, designed, built and documented end to end on my own.</p></div></div></section>
+  <section class="cs-sec" aria-labelledby="s-implementation"><h2 id="s-implementation"><span>04</span>Implementation</h2><div><ul class="cs-list"><li><strong>Capture</strong> — a Python script on the Pi captures a frame every second and runs OpenALPR with the EU region. Consecutive duplicates are skipped.</li><li><strong>Unattended operation</strong> — the script runs as a <code>systemd</code> service with <code>Restart=always</code>, so it starts on boot and recovers from failures.</li><li><strong>Backend</strong> — Flask API and web app with MySQL; the Pi posts each detected plate and image to it over HTTP. Users request their plate and administrators approve or reject it (role-based access).</li><li><strong>Real time</strong> — the server emits each access event over Socket.IO and the history view updates without reloading.</li></ul></div></section>
+  <section class="cs-sec" aria-labelledby="s-output"><h2 id="s-output"><span>05</span>Result / output</h2><div><div class="prose"><p>A working end-to-end system — plate in front of the camera, decision in the backend, event on screen — with full technical documentation in the repository.</p></div></div></section>
+  <section class="cs-sec" aria-labelledby="s-tech"><h2 id="s-tech"><span>06</span>Technologies</h2><div><ul class="tags"><li class="tag">Raspberry Pi 3B</li><li class="tag">Python</li><li class="tag">OpenALPR</li><li class="tag">Flask</li><li class="tag">MySQL</li><li class="tag">Socket.IO</li><li class="tag">WebSockets</li><li class="tag">systemd</li></ul></div></section>
+  <div class="cs-next">
+    <a href="/projects/network-topology-scanner/"><span class="eyebrow">Next project<svg style="width:14px;height:14px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="t">Network Topology Scanner</span></a>
+    <a href="/#contact"><span class="eyebrow">Hiring for an infrastructure role?</span><span class="t">Get in touch →</span></a>
+  </div>
+</div>
+</main>
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p>© 2026 Daniel Serrano Marín · Static HTML & CSS · no trackers</p>
+    <nav aria-label="Footer">
+      <a href="https://github.com/danielsm107" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/daniel-serrano-marin" rel="noopener">LinkedIn</a>
+      <a href="mailto:danielserranomarin821@gmail.com">Email</a>
+      <a href="/es/projects/lpr-access-control/" hreflang="es">Español</a>
+    </nav>
+  </div>
+</footer>
+<script>
+(function(){var n=document.querySelector('.nav'),b=n&&n.querySelector('.nav-toggle');if(!b)return;
+function set(o){n.classList.toggle('open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?b.dataset.close:b.dataset.open)}
+b.addEventListener('click',function(){set(!n.classList.contains('open'))});
+n.querySelectorAll('.nav-panel a').forEach(function(a){a.addEventListener('click',function(){set(false)})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&n.classList.contains('open')){set(false);b.focus()}});
+matchMedia('(min-width:961px)').addEventListener('change',function(e){if(e.matches)set(false)});})();
+</script>
+</body>
+</html>
