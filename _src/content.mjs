@@ -56,15 +56,11 @@ export const ui = {
       'Junior systems and network administrator working on real infrastructure: MikroTik and Fortinet networks for 35+ clients, corporate VPNs, and Linux servers on AWS with CloudWatch monitoring and Lambda automation.',
       'Administrador de sistemas y redes junior trabajando con infraestructura real: redes MikroTik y Fortinet para más de 35 clientes, VPNs corporativas y servidores Linux en AWS con monitorización en CloudWatch y automatización con Lambda.',
     ),
-    direction: L('Building toward Cloud, DevOps and Cybersecurity', 'Evolucionando hacia Cloud, DevOps y Ciberseguridad'),
+    direction: L('Building toward Cloud/DevOps', 'Evolucionando hacia Cloud/DevOps'),
     ctaProjects: L('View projects', 'Ver proyectos'),
     ctaCv: L('Download CV', 'Descargar CV'),
     status: L('Open to opportunities', 'Abierto a oportunidades'),
     location: L('Jerez de la Frontera, Spain · remote', 'Jerez de la Frontera · remoto'),
-    visualNote: L(
-      'Visual abstraction of the areas I work in — not a real network diagram.',
-      'Abstracción visual de las áreas en las que trabajo, no un diagrama de red real.',
-    ),
   },
   sections: {
     areas: { title: L('Technical areas', 'Áreas técnicas') },

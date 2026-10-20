@@ -20,7 +20,7 @@ This regenerates `index.html`, `es/index.html`, `projects/<slug>/index.html`, `e
 
 - `_src/content.mjs` — single source of truth for all text and data. Every visible string is `{ en, es }`, built with the `L(en, es)` helper. Adding a project = adding an entry to `projects` (its `slug` becomes the URL, `diagram` names a key in `architectures`).
 - `_src/build.mjs` — templating via JS template literals: `head()` (SEO, hreflang alternates, OG, JSON-LD), `nav()`, `footer()`, `home()`, `caseStudy()`, `notFound()`, `sitemap()`. `t(value, lang)` resolves bilingual values; `esc()` HTML-escapes. EN lives at `/`, ES under `/es/` (`prefix()`/`projectPath()`). The CSS link gets a cache-busting `?v=` per build.
-- `_src/diagrams.mjs` — hero visual, the pipeline strip, and per-project architecture diagrams rendered as HTML (`ar-*` classes), keyed by the project's `diagram` field.
+- `_src/diagrams.mjs` — the pipeline strip and per-project architecture diagrams rendered as HTML (`ar-*` classes), keyed by the project's `diagram` field.
 - `assets/site.css` — the whole hand-written design system (dark-only, CSS custom properties on `:root`, single accent `--accent`, Geist / Geist Mono self-hosted in `assets/fonts/`). Class names used by the generator live here.
 - `_src/og/` — HTML pages rendered with headless Chrome to produce `assets/og.png` (1200×630) and `assets/apple-touch-icon.png`; only needed when those images change.
 - `cv/` — downloadable CV PDFs referenced from `site.cv` / `site.cvDevops`.

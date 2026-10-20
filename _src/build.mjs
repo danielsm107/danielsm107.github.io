@@ -8,7 +8,7 @@ import { mkdirSync, writeFileSync, existsSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as C from './content.mjs';
-import { heroVisual, pipeline, architectures } from './diagrams.mjs';
+import { pipeline, architectures } from './diagrams.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const LANGS = ['en', 'es'];
@@ -193,7 +193,6 @@ function home(lang) {
         </span>
       </div>
     </div>
-    ${heroVisual(t(ui.hero.visualNote, lang))}
   </div>
 </section>`;
 
