@@ -330,8 +330,8 @@ function home(lang) {
         <li><a href="mailto:${site.email}"><span class="k">${t(K.email, lang)}</span><span class="v">${site.email}</span>${icon.arrowUpRight}</a></li>
         <li><a ${ext(site.linkedin)}><span class="k">LinkedIn</span><span class="v">in/${site.linkedinHandle}</span>${icon.arrowUpRight}</a></li>
         <li><a ${ext(site.github)}><span class="k">GitHub</span><span class="v">${site.githubHandle}</span>${icon.arrowUpRight}</a></li>
-        <li><a href="${t(site.cv, lang)}" download><span class="k">${t(K.cv, lang)}</span><span class="v">${t(K.cvGeneral, lang)}</span>${icon.download}</a></li>
-        <li><a href="${site.cvDevops}" download><span class="k">${t(K.cv, lang)}</span><span class="v">${t(K.cvDevops, lang)}</span>${icon.download}</a></li>
+        <li><a href="${t(site.cv, lang)}" download><span class="k">${t(K.cv, lang)}</span><span class="v">${t(K.cvDevops, lang)}</span>${icon.download}</a></li>
+        <li><a href="${site.cvSystems}" download><span class="k">${t(K.cv, lang)}</span><span class="v">${t(K.cvGeneral, lang)}</span>${icon.download}</a></li>
       </ul>
     </div>
   </div>
@@ -458,7 +458,7 @@ out('sitemap.xml', sitemap());
 
 // Sanity checks: every local asset/link referenced must exist.
 const missing = [];
-for (const f of [...new Set([site.cv.en, site.cv.es, site.cvDevops, '/assets/og.png', '/assets/favicon.svg', '/assets/apple-touch-icon.png'])]) {
+for (const f of [...new Set([site.cv.en, site.cv.es, site.cvSystems, '/assets/og.png', '/assets/favicon.svg', '/assets/apple-touch-icon.png'])]) {
   if (!existsSync(join(ROOT, f))) missing.push(f);
 }
 if (missing.length) {

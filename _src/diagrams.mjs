@@ -17,22 +17,22 @@ const grp = (label, inner) => `<div class="ar-group"><span class="ar-gl">${esc(l
 
 export const architectures = {
   scanner: (lang) => ({
-    label: { en: 'Scanner data flow', es: 'Flujo de datos del escáner' }[lang],
+    label: { en: 'Platform architecture', es: 'Arquitectura de la plataforma' }[lang],
     caption: {
-      en: 'Data flow. Every scan is also written to SQLite and diffed against the previous run.',
-      es: 'Flujo de datos. Cada escaneo se guarda además en SQLite y se compara con el anterior.',
+      en: 'From a version tag to the nightly scan. Nothing in the homelab is exposed to the internet: Jenkins polls GitHub from inside.',
+      es: 'De un tag de versión al escaneo nocturno. Nada del homelab está expuesto a internet: Jenkins consulta GitHub desde dentro.',
     }[lang],
     html:
       `<div class="ar-row">` +
-      grp('Input', node({ t: 'Network', s: ['CIDR range', 'e.g. 192.168.1.0/24'] })) +
-      link('scan') +
-      grp('Discovery', node({ t: 'Nmap', s: ['ping sweep', 'ports · services (-sV)'] })) +
-      link('parse') +
-      grp('Python', node({ t: 'Classifier', s: ['MAC vendor → category', 'risky-port flags'], accent: true }) + node({ t: 'SQLite', s: ['scan history · diff'] })) +
-      link('graph') +
-      grp('Model', node({ t: 'NetworkX', s: ['topology graph'] })) +
-      link('render') +
-      grp('Output', node({ t: 'PyVis', s: ['interactive HTML'] }) + node({ t: 'CSV', s: ['inventory'] })) +
+      grp('GitHub', node({ t: 'GitHub Actions', s: ['ruff · pytest · Trivy', 'terraform test · helm lint'] }) + node({ t: 'Release', s: ['PyPI · GHCR'] })) +
+      link('poll') +
+      grp('k3s · Proxmox',
+        node({ t: 'Jenkins', s: ['helm upgrade · helm test', 'automatic rollback'], accent: true }) +
+        node({ t: 'Nightly CronJob', s: ['Nmap · SNMP', 'SQLite history · diff'] })) +
+      link('metrics · logs') +
+      grp('Observability', node({ t: 'Prometheus · Grafana', s: ['alert rules · dashboard'] }) + node({ t: 'Loki · Alloy', s: ['pod logs · events'] })) +
+      link('alerts') +
+      grp('Out', node({ t: 'Telegram', s: ['alerts · watchdog'] }) + node({ t: 'AWS (OIDC)', s: ['S3 backups · SNS email'] })) +
       `</div>`,
   }),
 

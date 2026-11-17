@@ -1,9 +1,10 @@
 // Single source of truth for the site. Every visible string is { en, es }.
 //
 // FACT SOURCES — nothing here may go beyond them:
-//   [CV-A] CV_Daniel_Serrano.pdf         (Systems & Networking)
-//   [CV-B] CV_Daniel_Serrano_Devops.pdf  (DevOps / Cloud)
-//   [REPO] public READMEs on github.com/danielsm107
+//   [CV-A] CV_Daniel_Serrano.pdf             (Systems & Networking)
+//   [CV-B] CV_Daniel_Serrano_Devops(_EN).pdf (DevOps / Cloud, ES and EN, 2026-11-17)
+//   [REPO] public READMEs on github.com/danielsm107, and the scanner's
+//          docs/architecture.md (the DevOps platform around it)
 // Where the CVs differ, the more conservative wording wins.
 
 export const L = (en, es = en) => ({ en, es });
@@ -17,8 +18,9 @@ export const site = {
   linkedin: 'https://www.linkedin.com/in/daniel-serrano-marin', // [CV-A][CV-B]
   linkedinHandle: 'daniel-serrano-marin',
   // PDFs served from /cv/. The build fails loudly if one is missing.
-  cv: L('/cv/daniel-serrano-marin-cv.pdf', '/cv/daniel-serrano-marin-cv.pdf'),
-  cvDevops: '/cv/daniel-serrano-marin-cv-cloud-devops.pdf',
+  // Main CV = Cloud/DevOps, in the page's language; the systems CV is Spanish only.
+  cv: L('/cv/daniel-serrano-marin-cv-cloud-devops-en.pdf', '/cv/daniel-serrano-marin-cv-cloud-devops.pdf'),
+  cvSystems: '/cv/daniel-serrano-marin-cv.pdf',
   locality: 'Jerez de la Frontera',
   region: 'Andalucía',
   country: 'ES',
@@ -41,22 +43,22 @@ export const ui = {
   },
   seo: {
     title: L(
-      'Daniel Serrano Marín — Systems & Infrastructure Engineer',
-      'Daniel Serrano Marín — Administrador de Sistemas e Infraestructura',
+      'Daniel Serrano Marín — Systems & Network Administrator → DevOps / Cloud',
+      'Daniel Serrano Marín — Administrador de Sistemas y Redes → DevOps / Cloud',
     ),
     description: L(
-      'Systems & network administrator in Jerez de la Frontera, Spain. Linux, enterprise networking (MikroTik, Fortinet, VPN) and AWS infrastructure (EC2, VPC, CloudWatch, Lambda). Building toward cloud, DevOps and security.',
-      'Administrador de sistemas y redes en Jerez de la Frontera. Linux, redes empresariales (MikroTik, Fortinet, VPN) e infraestructura AWS (EC2, VPC, CloudWatch, Lambda). Evolucionando hacia cloud, DevOps y seguridad.',
+      'Systems & network administrator in Jerez de la Frontera, Spain, moving into DevOps and cloud. AWS, Linux and enterprise networking in production; Kubernetes, Terraform, CI/CD and monitoring in a self-hosted platform of my own.',
+      'Administrador de sistemas y redes en Jerez de la Frontera, orientado a DevOps y cloud. AWS, Linux y redes empresariales en producción; Kubernetes, Terraform, CI/CD y monitorización en una plataforma self-hosted propia.',
     ),
   },
   hero: {
-    role: L('Systems & Infrastructure Engineer', 'Administrador de Sistemas e Infraestructura'),
-    stack: 'Linux · Networking · AWS · Cloud · Automation',
+    role: L('Systems & Network Administrator → DevOps / Cloud', 'Administrador de Sistemas y Redes → DevOps / Cloud'),
+    stack: 'AWS · Kubernetes · Terraform · CI/CD · Linux · Networking',
     lead: L(
-      'Junior systems and network administrator working on real infrastructure: MikroTik and Fortinet networks for 35+ clients, corporate VPNs, and Linux servers on AWS with CloudWatch monitoring and Lambda automation.',
-      'Administrador de sistemas y redes junior trabajando con infraestructura real: redes MikroTik y Fortinet para más de 35 clientes, VPNs corporativas y servidores Linux en AWS con monitorización en CloudWatch y automatización con Lambda.',
+      'Systems and network administrator running production infrastructure since 2025: MikroTik and Fortinet networks for 35+ clients, corporate VPNs, and Linux servers on AWS. Outside work I have built, and run, the full platform around an open-source tool of my own: Terraform, Kubernetes, continuous deployment with automatic rollback, keyless AWS access and monitoring with alerts.',
+      'Administrador de sistemas y redes con infraestructura en producción desde 2025: redes MikroTik y Fortinet para más de 35 clientes, VPNs corporativas y servidores Linux en AWS. Fuera del trabajo he construido y mantengo la plataforma completa de una herramienta open source propia: Terraform, Kubernetes, despliegue continuo con rollback automático, AWS sin claves y monitorización con alertas.',
     ),
-    direction: L('Building toward Cloud/DevOps', 'Evolucionando hacia Cloud/DevOps'),
+    direction: L('Moving into DevOps / Cloud', 'Orientado a DevOps / Cloud'),
     ctaProjects: L('View projects', 'Ver proyectos'),
     ctaCv: L('Download CV', 'Descargar CV'),
     status: L('Open to opportunities', 'Abierto a oportunidades'),
@@ -108,15 +110,14 @@ export const ui = {
       title: L('Contact', 'Contacto'),
       heading: L('Let’s talk infrastructure.', 'Hablemos de infraestructura.'),
       body: L(
-        'I’m looking for roles in systems administration, networking, cloud, DevOps or infrastructure. Based in Jerez de la Frontera, Spain — available for remote work.',
-        'Busco puestos en administración de sistemas, redes, cloud, DevOps o infraestructura. Vivo en Jerez de la Frontera y tengo disponibilidad para trabajar en remoto.',
+        'I’m looking for DevOps and cloud roles, and infrastructure roles close to them. Based in Jerez de la Frontera, Spain — available for remote work.',
+        'Busco puestos de DevOps y cloud, o de infraestructura cercanos a ellos. Vivo en Jerez de la Frontera y tengo disponibilidad para trabajar en remoto.',
       ),
       roles: [
-        L('Systems Administration', 'Administración de sistemas'),
-        L('Networking', 'Redes'),
-        L('Cloud', 'Cloud'),
         L('DevOps', 'DevOps'),
+        L('Cloud', 'Cloud'),
         L('Infrastructure', 'Infraestructura'),
+        L('Systems Administration', 'Administración de sistemas'),
       ],
       email: L('Email', 'Email'),
       cv: L('CV', 'CV'),
@@ -158,7 +159,7 @@ export const areas = [
   { name: L('Systems', 'Sistemas'), items: ['Linux', 'Ubuntu Server', 'CentOS', 'VMware', 'Proxmox', 'Docker'] },
   { name: L('Networking', 'Redes'), items: ['MikroTik', 'Fortinet', 'Routing', 'VLANs', 'VPN'] },
   { name: L('Cloud', 'Cloud'), items: ['AWS EC2', 'VPC', 'CloudWatch', 'Lambda', 'EventBridge', 'S3'] },
-  { name: L('Automation', 'Automatización'), items: ['Bash', 'Python', 'AWS Lambda', 'EventBridge', 'systemd'] },
+  { name: L('DevOps & automation', 'DevOps y automatización'), items: ['Kubernetes (k3s)', 'Helm', 'Terraform', 'GitHub Actions · Jenkins', 'Prometheus · Grafana · Loki', 'Bash · Python'] },
   { name: L('Security', 'Seguridad'), items: ['Firewalls', 'VPN', 'NACLs', 'Security Groups', 'Linux hardening'] },
 ];
 
@@ -250,6 +251,7 @@ export const skills = [
     name: L('Cloud (AWS)', 'Cloud (AWS)'),
     items: [
       ['EC2', true], ['VPC', true], ['CloudWatch', true], ['Lambda', true], ['EventBridge', true], ['S3', false],
+      ['SNS', false], ['IAM', false], ['OIDC for GitHub Actions', false, 'OIDC con GitHub Actions'],
     ],
   },
   {
@@ -257,7 +259,15 @@ export const skills = [
     items: [
       ['Linux', true], ['Docker', true], ['Microsoft Entra ID', true], ['Intune', true],
       ['Ubuntu Server', false], ['CentOS', false], ['Proxmox', false], ['VMware', false],
-      ['Kubernetes (k3s / Minikube)', false], ['User & permission management', false, 'Gestión de usuarios y permisos'],
+      ['User & permission management', false, 'Gestión de usuarios y permisos'],
+    ],
+  },
+  {
+    name: L('DevOps & infrastructure as code', 'DevOps e infraestructura como código'),
+    items: [
+      ['Kubernetes (k3s)', false], ['Helm', false], ['Terraform', false], ['cloud-init', false],
+      ['GitHub Actions', false], ['Jenkins', false], ['Trivy', false],
+      ['Prometheus', false], ['Grafana', false], ['Loki', false],
     ],
   },
   {
@@ -269,7 +279,7 @@ export const skills = [
   },
   {
     name: L('Scripting & other', 'Scripting y otros'),
-    items: [['Bash', true], ['Python', false], ['Shell', false], ['systemd', false], ['SQL', false], ['HTML / CSS', false]],
+    items: [['Bash', true], ['Python', false], ['pytest', false], ['Shell', false], ['systemd', false], ['SQL', false], ['HTML / CSS', false]],
   },
 ];
 
@@ -277,43 +287,43 @@ export const skills = [
 export const projects = [
   {
     slug: 'network-topology-scanner',
-    type: L('Personal project', 'Proyecto personal'),
+    type: L('Personal open-source project', 'Proyecto personal open source'),
     date: L('2026 — Present', '2026 — Actualidad'),
     role: L('Sole author', 'Autor único'),
-    title: L('Network Topology Scanner', 'Escáner de topología de red'),
+    title: L('Network Topology Scanner + self-hosted DevOps platform', 'Network Topology Scanner + plataforma DevOps self-hosted'),
     tagline: L(
-      'Scans a network with Nmap, builds the topology as a graph with NetworkX and exports it as interactive HTML with PyVis.',
-      'Escanea una red con Nmap, construye la topología como grafo con NetworkX y la exporta a HTML interactivo con PyVis.',
+      'A Python network scanner, and the platform that builds, deploys, monitors and backs it up: Terraform, Kubernetes, Jenkins, AWS through OIDC, Prometheus, Grafana and Loki.',
+      'Un escáner de red en Python y la plataforma que lo construye, despliega, vigila y respalda: Terraform, Kubernetes, Jenkins, AWS con OIDC, Prometheus, Grafana y Loki.',
     ),
-    tags: ['Python', 'Nmap', 'NetworkX', 'PyVis'],
+    tags: ['Kubernetes', 'Terraform', 'Helm', 'Jenkins', 'GitHub Actions', 'AWS', 'Prometheus', 'Python'],
     repo: 'https://github.com/danielsm107/network-topology-scanner',
-    pipeline: ['Network', 'Nmap', 'Python', 'NetworkX', 'PyVis', 'Interactive HTML'],
+    pipeline: ['GitHub Actions', 'PyPI · GHCR', 'Jenkins', 'k3s', 'Nightly scan', 'Prometheus · Loki'],
     diagram: 'scanner',
     summary: [
-      L('A Python tool that turns a network range into a map. Nmap discovers the live hosts and their open ports and services; the results become a NetworkX graph, and PyVis renders that graph as an interactive HTML page you can open in any browser.',
-        'Una herramienta en Python que convierte un rango de red en un mapa. Nmap descubre los hosts activos y sus puertos y servicios abiertos; los resultados se convierten en un grafo de NetworkX y PyVis lo exporta a una página HTML interactiva que se abre en cualquier navegador.'),
-      L('It is aimed at inventory and quick auditing of networks you own or are authorized to scan.',
-        'Está pensada para inventariar y auditar rápidamente redes propias o con autorización para escanearlas.'),
+      L('The tool scans a network with Nmap (and the routers over SNMP), classifies devices, flags risky open ports, keeps a history in SQLite and draws the topology. It is published on PyPI and as a multi-arch image on GHCR.',
+        'La herramienta escanea una red con Nmap (y los routers por SNMP), clasifica los dispositivos, marca los puertos de riesgo, guarda un historial en SQLite y dibuja la topología. Está publicada en PyPI y como imagen multiarquitectura en GHCR.'),
+      L('Around it I built the platform that runs it every night in my homelab, in eight phases, each with a runbook: a Kubernetes VM created with Terraform, a Helm chart, continuous deployment with Jenkins, AWS resources managed by GitHub Actions, and monitoring and logs with alerts. It is a one-node homelab, not a production system, and the decisions are sized for that.',
+        'Alrededor construí la plataforma que lo ejecuta cada noche en mi homelab, en ocho fases, cada una con su runbook: una VM de Kubernetes creada con Terraform, un chart de Helm, despliegue continuo con Jenkins, recursos de AWS gestionados por GitHub Actions, y monitorización y logs con alertas. Es un homelab de un nodo, no un sistema de producción, y las decisiones están dimensionadas para eso.'),
     ],
-    contribution: L('Designed and wrote the whole tool: scanning, classification, graph building, exports, history, tests and CI.',
-      'Diseñé y escribí toda la herramienta: escaneo, clasificación, construcción del grafo, exportaciones, historial, tests y CI.'),
-    implementation: [ // [REPO] README
-      L('<strong>Discovery</strong> — Nmap in two phases by default: a ping sweep to find live hosts, then port and service detection (<code>-sV</code>) on those hosts only. Optional OS detection and a fast preset.',
-        '<strong>Descubrimiento</strong> — Nmap en dos fases por defecto: un barrido ping para encontrar hosts activos y después detección de puertos y servicios (<code>-sV</code>) solo sobre ellos. Detección de SO opcional y un modo rápido.'),
-      L('<strong>Classification</strong> — each host’s MAC vendor maps to a device category (router, firewall, VM, NAS, printer, camera, IoT…). Works on the same L2 segment only, since ARP doesn’t cross routers or VLANs.',
-        '<strong>Clasificación</strong> — el fabricante de la MAC de cada host se asigna a una categoría (router, firewall, VM, NAS, impresora, cámara, IoT…). Solo funciona en el mismo segmento L2, porque ARP no atraviesa routers ni VLANs.'),
-      L('<strong>Risk flags</strong> — hosts with sensitive ports open (Telnet, SMB, RDP, FTP, VNC) are highlighted in red.',
-        '<strong>Alertas</strong> — los hosts con puertos sensibles abiertos (Telnet, SMB, RDP, FTP, VNC) se marcan en rojo.'),
-      L('<strong>History</strong> — every scan is stored in SQLite and compared with the previous one: new or missing hosts, changed ports.',
-        '<strong>Historial</strong> — cada escaneo se guarda en SQLite y se compara con el anterior: hosts nuevos o desaparecidos y puertos que cambian.'),
-      L('<strong>Interfaces</strong> — CLI, plus an optional local Streamlit web UI with cancellable scans; CSV export for inventory.',
-        '<strong>Interfaces</strong> — CLI y una interfaz web local opcional en Streamlit con escaneos cancelables; exportación a CSV para inventario.'),
-      L('<strong>Quality</strong> — pytest suite with Nmap mocked (no real network needed) and GitHub Actions running tests and ruff on every push.',
-        '<strong>Calidad</strong> — tests con pytest simulando Nmap (sin necesidad de red real) y GitHub Actions ejecutando tests y ruff en cada push.'),
+    contribution: L('Designed, built and documented everything: the tool, its tests and CI, the infrastructure, the pipeline and the monitoring, plus failure rehearsals for each phase.',
+      'Diseñé, construí y documenté todo: la herramienta, sus tests y CI, la infraestructura, el pipeline y la monitorización, además de ensayos de fallo en cada fase.'),
+    implementation: [ // [REPO] README + docs/architecture.md
+      L('<strong>CI and releases</strong> — GitHub Actions runs ruff, 600+ pytest tests, a Trivy scan of the image, <code>terraform test</code>, <code>helm lint</code> and <code>promtool</code>. A version tag publishes to PyPI (trusted publishing) and GHCR (amd64 + arm64).',
+        '<strong>CI y releases</strong> — GitHub Actions pasa ruff, más de 600 tests de pytest, un escaneo de la imagen con Trivy, <code>terraform test</code>, <code>helm lint</code> y <code>promtool</code>. Un tag de versión publica en PyPI (trusted publishing) y en GHCR (amd64 + arm64).'),
+      L('<strong>Infrastructure as code</strong> — Terraform creates the k3s VM on Proxmox with cloud-init, with its state in S3. AWS resources (S3, SNS, IAM) are applied by GitHub Actions through OIDC: no stored keys, read-only plans on pull requests, apply behind a manual approval.',
+        '<strong>Infraestructura como código</strong> — Terraform crea la VM de k3s en Proxmox con cloud-init, con el estado en S3. Los recursos de AWS (S3, SNS, IAM) los aplica GitHub Actions mediante OIDC: sin claves guardadas, plan de solo lectura en los pull requests y apply con aprobación manual.'),
+      L('<strong>Continuous deployment</strong> — Jenkins runs inside the cluster and polls GitHub, so nothing reaches into the LAN. Each release goes through <code>helm upgrade</code> and <code>helm test</code>; on failure it rolls back to the exact previous revision and sends an email. Rehearsed by forcing failures.',
+        '<strong>Despliegue continuo</strong> — Jenkins corre dentro del clúster y consulta GitHub, así que nada entra en la LAN. Cada versión pasa por <code>helm upgrade</code> y <code>helm test</code>; si falla, vuelve a la revisión anterior exacta y avisa por email. Ensayado forzando fallos.'),
+      L('<strong>Observability</strong> — Prometheus with alert rules tested by promtool, a Grafana dashboard, logs in Loki collected by Alloy, alerts on Telegram, and an external watchdog (healthchecks.io) that fires if the monitoring itself goes down.',
+        '<strong>Observabilidad</strong> — Prometheus con reglas de alerta probadas con promtool, un panel de Grafana, logs en Loki recogidos por Alloy, alertas por Telegram y un vigilante externo (healthchecks.io) que avisa si la propia monitorización cae.'),
+      L('<strong>Supply chain and least privilege</strong> — third-party actions pinned by commit SHA and third-party images by digest, enforced by tests; nmap runs without root using file capabilities.',
+        '<strong>Cadena de suministro y mínimo privilegio</strong> — actions de terceros fijadas por SHA e imágenes de terceros por digest, con tests que lo obligan; nmap se ejecuta sin root con capacidades de archivo.'),
+      L('<strong>Backups</strong> — reports and a versioned copy of the scan history go to S3; the restore was tested by deleting the data volume on purpose.',
+        '<strong>Backups</strong> — informes y una copia versionada del historial van a S3; la restauración se probó borrando el volumen de datos a propósito.'),
     ],
-    output: L('An interactive HTML topology map with icons per device category and red flags on risky hosts, a CSV inventory, and a scan-to-scan diff.',
-      'Un mapa de topología en HTML interactivo con iconos por categoría y alertas en rojo, un inventario CSV y la comparación entre escaneos.'),
-    tech: ['Python', 'Nmap', 'NetworkX', 'PyVis', 'SQLite', 'Streamlit', 'pytest', 'ruff', 'GitHub Actions'],
+    output: L('A scan that runs every night without anyone touching it, an email only when the network changes in a way worth a look, and a platform that can be rebuilt from the repository.',
+      'Un escaneo que corre cada noche sin que nadie lo toque, un email solo cuando la red cambia de forma que merece mirarla, y una plataforma que se puede reconstruir desde el repositorio.'),
+    tech: ['Python', 'Docker', 'Kubernetes (k3s)', 'Helm', 'Terraform', 'Proxmox', 'GitHub Actions', 'Jenkins', 'AWS (S3, SNS, IAM, OIDC)', 'Prometheus', 'Grafana', 'Loki', 'Trivy', 'pytest'],
   },
   {
     slug: 'lpr-access-control',
@@ -356,9 +366,9 @@ export const about = {
   paragraphs: [
     L('I’m a systems and network administrator with a background in network systems administration (ASIR). Since March 2025 I’ve worked at Cadifone on production infrastructure for client companies: MikroTik and Fortinet networks, VPN access, Linux servers on AWS and the automation and monitoring around them.',
       'Soy administrador de sistemas y redes, formado en Administración de Sistemas Informáticos en Red (ASIR). Desde marzo de 2025 trabajo en Cadifone con infraestructura en producción para empresas cliente: redes MikroTik y Fortinet, acceso por VPN, servidores Linux en AWS y la automatización y monitorización que los rodea.'),
-    L('My foundation is systems and networking. Where I’m heading is cloud infrastructure, DevOps and security — I’m building that the same way I learned the rest: on real systems, with automation wherever a task repeats.',
-      'Mi base son los sistemas y las redes. Hacia donde voy es la infraestructura cloud, DevOps y la seguridad, y lo estoy construyendo igual que aprendí lo demás: sobre sistemas reales y automatizando todo lo que se repite.'),
+    L('My foundation is systems and networking. Where I’m heading is DevOps and cloud, and I’m learning it the way I learned the rest: on a real system. My network scanner runs every night on a Kubernetes cluster I built with Terraform, is deployed by a pipeline that tests and rolls back on its own, and alerts me if anything stops working, the monitoring included.',
+      'Mi base son los sistemas y las redes. Hacia donde voy es DevOps y cloud, y lo estoy aprendiendo como aprendí lo demás: sobre un sistema real. Mi escáner de red se ejecuta cada noche en un clúster de Kubernetes que monté con Terraform, lo despliega un pipeline que prueba y hace rollback solo, y me avisa si algo deja de funcionar, incluida la propia monitorización.'),
   ],
   foundation: [L('Systems', 'Sistemas'), L('Networking', 'Redes'), L('Linux', 'Linux'), L('AWS', 'AWS')],
-  focus: [L('Cloud infrastructure', 'Infraestructura cloud'), L('Automation', 'Automatización'), L('DevOps', 'DevOps'), L('Cybersecurity', 'Ciberseguridad')],
+  focus: [L('DevOps', 'DevOps'), L('Cloud infrastructure', 'Infraestructura cloud'), L('Infrastructure as code', 'Infraestructura como código'), L('Observability', 'Observabilidad')],
 };
