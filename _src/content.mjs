@@ -55,8 +55,8 @@ export const ui = {
     role: L('Systems & Network Administrator → DevOps / Cloud', 'Administrador de Sistemas y Redes → DevOps / Cloud'),
     stack: 'AWS · Kubernetes · Terraform · CI/CD · Linux · Networking',
     lead: L(
-      'Systems and network administrator running production infrastructure since 2025: MikroTik and Fortinet networks for 35+ clients, corporate VPNs, and Linux servers on AWS. Outside work I built and maintain the full platform around an open-source tool of my own: Terraform, Kubernetes, continuous deployment with automatic rollback, keyless AWS access and monitoring with alerts.',
-      'Administrador de sistemas y redes con infraestructura en producción desde 2025: redes MikroTik y Fortinet para más de 35 clientes, VPNs corporativas y servidores Linux en AWS. Fuera del trabajo he construido y mantengo la plataforma completa de una herramienta open source propia: Terraform, Kubernetes, despliegue continuo con rollback automático, AWS sin claves y monitorización con alertas.',
+      'Systems and network administrator running production infrastructure since 2024: MikroTik and Fortinet networks for 35+ clients, corporate VPNs, and Linux servers on AWS. Outside work I built and maintain the full platform around an open-source tool of my own: Terraform, Kubernetes, continuous deployment with automatic rollback, keyless AWS access and monitoring with alerts.',
+      'Administrador de sistemas y redes con infraestructura en producción desde 2024: redes MikroTik y Fortinet para más de 35 clientes, VPNs corporativas y servidores Linux en AWS. Fuera del trabajo he construido y mantengo la plataforma completa de una herramienta open source propia: Terraform, Kubernetes, despliegue continuo con rollback automático, AWS sin claves y monitorización con alertas.',
     ),
     direction: L('Moving into DevOps / Cloud', 'Orientado a DevOps / Cloud'),
     ctaProjects: L('View projects', 'Ver proyectos'),
@@ -167,8 +167,8 @@ export const areas = [
 export const experience = {
   role: L('Systems & Network Administrator', 'Administrador de Sistemas y Redes'),
   company: 'Cadifone',
-  period: L('Mar 2025 — Present', 'Mar 2025 — Actualidad'),
-  start: '2025-03',
+  period: L('Oct 2024 — Present', 'Oct 2024 — Actualidad'),
+  start: '2024-10',
   location: L('Jerez de la Frontera, Spain', 'Jerez de la Frontera'),
   figures: [
     { value: '35+', label: L('client networks — MikroTik & Fortinet', 'redes de clientes — MikroTik y Fortinet') }, // [CV-A]
@@ -364,8 +364,8 @@ export const projects = [
 // ---------------------------------------------------------------- about
 export const about = {
   paragraphs: [
-    L('I’m a systems and network administrator with a background in network systems administration (ASIR). Since March 2025 I’ve worked at Cadifone on production infrastructure for client companies: MikroTik and Fortinet networks, VPN access, Linux servers on AWS and the automation and monitoring around them.',
-      'Soy administrador de sistemas y redes, formado en Administración de Sistemas Informáticos en Red (ASIR). Desde marzo de 2025 trabajo en Cadifone con infraestructura en producción para empresas cliente: redes MikroTik y Fortinet, acceso por VPN, servidores Linux en AWS y la automatización y monitorización que los rodea.'),
+    L('I’m a systems and network administrator with a background in network systems administration (ASIR). Since October 2024 I’ve worked at Cadifone on production infrastructure for client companies: MikroTik and Fortinet networks, VPN access, Linux servers on AWS and the automation and monitoring around them.',
+      'Soy administrador de sistemas y redes, formado en Administración de Sistemas Informáticos en Red (ASIR). Desde octubre de 2024 trabajo en Cadifone con infraestructura en producción para empresas cliente: redes MikroTik y Fortinet, acceso por VPN, servidores Linux en AWS y la automatización y monitorización que los rodea.'),
     L('My foundation is systems and networking. Where I’m heading is DevOps and cloud, and I’m learning it the way I learned the rest: on a real system. My network scanner runs every night on a Kubernetes cluster I built with Terraform, is deployed by a pipeline that tests and rolls back on its own, and alerts me if anything stops working, the monitoring included.',
       'Mi base son los sistemas y las redes. Hacia donde voy es DevOps y cloud, y lo estoy aprendiendo como aprendí lo demás: sobre un sistema real. Mi escáner de red se ejecuta cada noche en un clúster de Kubernetes que monté con Terraform, lo despliega un pipeline que prueba y hace rollback solo, y me avisa si algo deja de funcionar, incluida la propia monitorización.'),
   ],
