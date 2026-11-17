@@ -13,7 +13,7 @@ Administrador de Sistemas y Redes → DevOps / Cloud | AWS · Kubernetes · Terr
 
 ### Acerca de
 
-Administrador de sistemas y redes con infraestructura en producción desde 2025, orientado a DevOps y cloud.
+Administrador de sistemas y redes con infraestructura en producción desde 2024, orientado a DevOps y cloud.
 
 En Cadifone mantengo redes MikroTik y Fortinet de más de 35 empresas cliente, accesos VPN (WireGuard, SSTP) y servidores Linux en AWS (EC2, VPC, NACLs, Security Groups). Diseñé el backup automatizado en AWS de las centralitas de más de 10 clientes, migradas desde on-premises, y automatizo tareas con Bash y AWS Lambda programadas con EventBridge, con monitorización en CloudWatch.
 
@@ -28,7 +28,7 @@ Busco puestos de DevOps / Cloud, en España o en remoto.
 AWS Certified Cloud Practitioner · Cisco CCST · Curso de Auditor Interno ISO 27001 (AENOR)
 Portfolio: https://dsermar.dev
 
-### Experiencia → Cadifone · Administrador de Sistemas y Redes (mar. 2025 – actualidad)
+### Experiencia → Cadifone · Administrador de Sistemas y Redes (oct. 2024 – actualidad)
 
 • Mantengo la disponibilidad y la seguridad de redes corporativas MikroTik (routing, segmentación) y firewalls Fortinet de más de 35 clientes.
 • Implemento y gestiono acceso remoto seguro por VPN (WireGuard, SSTP).
@@ -72,7 +72,7 @@ Systems & Network Administrator → DevOps / Cloud | AWS · Kubernetes · Terraf
 
 ### About
 
-Systems and network administrator running production infrastructure since 2025, moving into DevOps and cloud.
+Systems and network administrator running production infrastructure since 2024, moving into DevOps and cloud.
 
 At Cadifone I look after MikroTik and Fortinet networks for 35+ client companies, VPN access (WireGuard, SSTP) and Linux servers on AWS (EC2, VPC, NACLs, Security Groups). I designed the automated AWS backup for the PBX systems of 10+ clients, migrated from on-premises, and I automate tasks with Bash and AWS Lambda scheduled through EventBridge, monitored with CloudWatch.
 
@@ -87,7 +87,7 @@ Looking for DevOps / Cloud roles, in Spain or remote.
 AWS Certified Cloud Practitioner · Cisco CCST · ISO 27001 Internal Auditor course (AENOR)
 Portfolio: https://dsermar.dev
 
-### Experience → Cadifone · Systems & Network Administrator (Mar 2025 – Present)
+### Experience → Cadifone · Systems & Network Administrator (Oct 2024 – Present)
 
 • Keep corporate MikroTik networks (routing, segmentation) and Fortinet firewalls available and secure for 35+ clients.
 • Implement and manage secure remote access over VPN (WireGuard, SSTP).
