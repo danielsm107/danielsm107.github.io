@@ -55,7 +55,7 @@ export const ui = {
     role: L('Systems & Network Administrator → DevOps / Cloud', 'Administrador de Sistemas y Redes → DevOps / Cloud'),
     stack: 'AWS · Kubernetes · Terraform · CI/CD · Linux · Networking',
     lead: L(
-      'Systems and network administrator running production infrastructure since 2025: MikroTik and Fortinet networks for 35+ clients, corporate VPNs, and Linux servers on AWS. Outside work I have built, and run, the full platform around an open-source tool of my own: Terraform, Kubernetes, continuous deployment with automatic rollback, keyless AWS access and monitoring with alerts.',
+      'Systems and network administrator running production infrastructure since 2025: MikroTik and Fortinet networks for 35+ clients, corporate VPNs, and Linux servers on AWS. Outside work I built and maintain the full platform around an open-source tool of my own: Terraform, Kubernetes, continuous deployment with automatic rollback, keyless AWS access and monitoring with alerts.',
       'Administrador de sistemas y redes con infraestructura en producción desde 2025: redes MikroTik y Fortinet para más de 35 clientes, VPNs corporativas y servidores Linux en AWS. Fuera del trabajo he construido y mantengo la plataforma completa de una herramienta open source propia: Terraform, Kubernetes, despliegue continuo con rollback automático, AWS sin claves y monitorización con alertas.',
     ),
     direction: L('Moving into DevOps / Cloud', 'Orientado a DevOps / Cloud'),
@@ -305,8 +305,8 @@ export const projects = [
       L('Around it I built the platform that runs it every night in my homelab, in eight phases, each with a runbook: a Kubernetes VM created with Terraform, a Helm chart, continuous deployment with Jenkins, AWS resources managed by GitHub Actions, and monitoring and logs with alerts. It is a one-node homelab, not a production system, and the decisions are sized for that.',
         'Alrededor construí la plataforma que lo ejecuta cada noche en mi homelab, en ocho fases, cada una con su runbook: una VM de Kubernetes creada con Terraform, un chart de Helm, despliegue continuo con Jenkins, recursos de AWS gestionados por GitHub Actions, y monitorización y logs con alertas. Es un homelab de un nodo, no un sistema de producción, y las decisiones están dimensionadas para eso.'),
     ],
-    contribution: L('Designed, built and documented everything: the tool, its tests and CI, the infrastructure, the pipeline and the monitoring, plus failure rehearsals for each phase.',
-      'Diseñé, construí y documenté todo: la herramienta, sus tests y CI, la infraestructura, el pipeline y la monitorización, además de ensayos de fallo en cada fase.'),
+    contribution: L('Designed, built and documented everything: the tool, its tests and CI, the infrastructure, the pipeline and the monitoring, and failure rehearsals.',
+      'Diseñé, construí y documenté todo: la herramienta, sus tests y CI, la infraestructura, el pipeline y la monitorización, y ensayos de fallo.'),
     implementation: [ // [REPO] README + docs/architecture.md
       L('<strong>CI and releases</strong> — GitHub Actions runs ruff, 600+ pytest tests, a Trivy scan of the image, <code>terraform test</code>, <code>helm lint</code> and <code>promtool</code>. A version tag publishes to PyPI (trusted publishing) and GHCR (amd64 + arm64).',
         '<strong>CI y releases</strong> — GitHub Actions pasa ruff, más de 600 tests de pytest, un escaneo de la imagen con Trivy, <code>terraform test</code>, <code>helm lint</code> y <code>promtool</code>. Un tag de versión publica en PyPI (trusted publishing) y en GHCR (amd64 + arm64).'),

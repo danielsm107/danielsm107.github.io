@@ -45,7 +45,7 @@ Enlace: https://github.com/danielsm107/network-topology-scanner
 
 Escáner de red en Python (Nmap, SNMP) publicado en PyPI y como imagen multiarquitectura en GHCR, y la plataforma que lo ejecuta cada noche en mi homelab:
 • Terraform + cloud-init para la VM de Kubernetes (k3s) en Proxmox, estado en S3.
-• GitHub Actions con OIDC para AWS (S3, SNS, IAM), plan en cada pull request y apply con aprobación.
+• GitHub Actions con OIDC para AWS (S3, SNS, IAM), plan en los pull requests y apply con aprobación.
 • Jenkins con Helm: despliegue de cada versión, helm test y rollback automático, ensayado forzando fallos.
 • Prometheus, Grafana, Loki y alertas por Telegram, con vigilante externo.
 • Actions fijadas por SHA, imágenes de terceros por digest, contenedor sin root.
@@ -76,7 +76,7 @@ Systems and network administrator running production infrastructure since 2025, 
 
 At Cadifone I look after MikroTik and Fortinet networks for 35+ client companies, VPN access (WireGuard, SSTP) and Linux servers on AWS (EC2, VPC, NACLs, Security Groups). I designed the automated AWS backup for the PBX systems of 10+ clients, migrated from on-premises, and I automate tasks with Bash and AWS Lambda scheduled through EventBridge, monitored with CloudWatch.
 
-Outside work I'm learning DevOps on a real system: I built, and run, the full platform around an open-source tool of my own, a network topology scanner published on PyPI and GHCR:
+Outside work I'm learning DevOps on a real system: I built and maintain the full platform around an open-source tool of my own, a network topology scanner published on PyPI and GHCR:
 • Infrastructure as code: Kubernetes (k3s) VM on Proxmox with Terraform and cloud-init; AWS resources applied by GitHub Actions through OIDC, with no stored keys.
 • CI/CD: 600+ tests, Trivy, terraform test and helm lint on every change; Jenkins inside the cluster deploys each release with Helm, tests it and rolls back on its own.
 • Observability: Prometheus, Grafana and Loki, Telegram alerts and an external watchdog in case the monitoring itself goes down.
@@ -102,7 +102,7 @@ Link: https://github.com/danielsm107/network-topology-scanner
 
 A Python network scanner (Nmap, SNMP) published on PyPI and as a multi-arch image on GHCR, and the platform that runs it every night in my homelab:
 • Terraform + cloud-init for the Kubernetes (k3s) VM on Proxmox, state in S3.
-• GitHub Actions with OIDC for AWS (S3, SNS, IAM): plan on every pull request, apply behind an approval.
+• GitHub Actions with OIDC for AWS (S3, SNS, IAM): plan on pull requests, apply behind an approval.
 • Jenkins with Helm: every release deployed, helm test, automatic rollback, rehearsed by forcing failures.
 • Prometheus, Grafana, Loki and Telegram alerts, with an external watchdog.
 • Actions pinned by SHA, third-party images by digest, non-root container.
