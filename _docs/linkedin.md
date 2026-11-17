@@ -1,5 +1,9 @@
 # Textos de LinkedIn (2026-11-17)
 
+> Experiencia: integra los detalles que ya tenía el perfil (VLANs, VPC con subredes públicas/privadas,
+> ciclo de vida de EC2, VPN site-to-site de su publicación). PENDIENTE: confirmar con Daniel el bullet
+> del backup de centralitas ("diseñé… más de 10 clientes" frente a "participé en la migración de una").
+
 Perfil principal en español; perfil secundario en inglés
 (Perfil → "Añadir perfil en otro idioma"). Mismos datos que el CV y el portfolio.
 
@@ -30,11 +34,11 @@ Portfolio: https://dsermar.dev
 
 ### Experiencia → Cadifone · Administrador de Sistemas y Redes (oct. 2024 – actualidad)
 
-• Mantengo la disponibilidad y la seguridad de redes corporativas MikroTik (routing, segmentación) y firewalls Fortinet de más de 35 clientes.
-• Implemento y gestiono acceso remoto seguro por VPN (WireGuard, SSTP).
+• Mantengo la disponibilidad y la seguridad de redes corporativas MikroTik (routing, segmentación con VLANs) y firewalls Fortinet (control de tráfico, seguridad perimetral) de más de 35 clientes.
+• Implemento y gestiono acceso remoto seguro por VPN (WireGuard, SSTP) y VPN site-to-site entre sedes.
 • Diseñé un sistema de backup automatizado en AWS para las centralitas (Issabel) de más de 10 clientes, migrando su infraestructura desde on-premises.
-• Despliego y administro servidores Linux en AWS EC2, configurando VPC, NACLs y Security Groups.
-• Automatizo tareas de infraestructura con Bash y AWS Lambda, programadas con EventBridge; monitorización con CloudWatch (logs, métricas y alertas).
+• Diseño la arquitectura VPC (subredes públicas y privadas) y despliego y administro servidores Linux en EC2, con NACLs y Security Groups.
+• Automatizo tareas de administración con Bash y el ciclo de vida de instancias EC2 con AWS Lambda y EventBridge; monitorización con CloudWatch (logs, métricas y alertas) y resolución de incidencias.
 • Gestiono y despliego aplicaciones con Docker; administro dispositivos con Microsoft Entra ID e Intune.
 
 Aptitudes de este puesto: AWS · Linux · MikroTik · Fortinet · Docker · Bash
@@ -89,11 +93,11 @@ Portfolio: https://dsermar.dev
 
 ### Experience → Cadifone · Systems & Network Administrator (Oct 2024 – Present)
 
-• Keep corporate MikroTik networks (routing, segmentation) and Fortinet firewalls available and secure for 35+ clients.
-• Implement and manage secure remote access over VPN (WireGuard, SSTP).
+• Keep corporate MikroTik networks (routing, VLAN segmentation) and Fortinet firewalls (traffic control, perimeter security) available and secure for 35+ clients.
+• Implement and manage secure remote access over VPN (WireGuard, SSTP) and site-to-site VPNs between offices.
 • Designed an automated AWS backup system for the Issabel PBX systems of 10+ clients, migrating their infrastructure from on-premises.
-• Deploy and administer Linux servers on AWS EC2, configuring VPC, NACLs and Security Groups.
-• Automate infrastructure tasks with Bash and AWS Lambda scheduled through EventBridge; CloudWatch monitoring for logs, metrics and alerts.
+• Design VPC architecture (public and private subnets) and deploy and administer Linux servers on EC2, with NACLs and Security Groups.
+• Automate admin tasks with Bash and the EC2 instance lifecycle with AWS Lambda and EventBridge; CloudWatch monitoring (logs, metrics, alerts) and incident resolution.
 • Manage and deploy applications with Docker; administer devices with Microsoft Entra ID and Intune.
 
 ### Projects → Network Topology Scanner + self-hosted DevOps platform (2026 – Present)
