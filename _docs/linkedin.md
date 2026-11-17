@@ -1,8 +1,8 @@
 # Textos de LinkedIn (2026-11-17)
 
 > Experiencia: integra los detalles que ya tenía el perfil (VLANs, VPC con subredes públicas/privadas,
-> ciclo de vida de EC2, VPN site-to-site de su publicación). PENDIENTE: confirmar con Daniel el bullet
-> del backup de centralitas ("diseñé… más de 10 clientes" frente a "participé en la migración de una").
+> ciclo de vida de EC2, VPN site-to-site de su publicación). Backup de centralitas: vale lo del CV
+> (diseñado por Daniel, más de 10 clientes), confirmado el 2026-11-17.
 
 Perfil principal en español; perfil secundario en inglés
 (Perfil → "Añadir perfil en otro idioma"). Mismos datos que el CV y el portfolio.
